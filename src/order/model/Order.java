@@ -51,5 +51,5 @@ public class Order {
     public int hashCode() {
         return Objects.hash(dish, price, time);
 
-
+    }
 }
