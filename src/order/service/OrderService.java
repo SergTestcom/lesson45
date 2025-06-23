@@ -9,13 +9,14 @@ public class OrderService {
 
     private final List<Order> orders = new ArrayList<>();
 
-    public void addOrder(Order order){
-        //TODO
-
+    public void addOrder(Order order) {
+        if (order != null) {
+            orders.add(order);
+        }
     }
 
     public List<Order> getAllOrders() {
-        return null; //TODO
+      return new ArrayList<>(orders);
     }
 
     public int getSize() {
@@ -23,6 +24,9 @@ public class OrderService {
     }
 
     public Order getOrderByName(String name) {
-        return null;
+        return orders.stream()
+                .filter(order -> order.getDish().equalsIgnoreCase(name))
+                .findFirst()
+                .orElse(null);
     }
 }
